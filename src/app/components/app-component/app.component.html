@@ -1,14 +1,44 @@
 <mat-toolbar color="primary" class="toolbar">
   <div>
-    <span class="mat-headline-4 toolbar-item">Volleyball Freitag</span>
+    <button mat-icon-button
+            (click)="toggleSidebar()"
+            [class.menu-open]="sidebarOpened"
+            [class.menu-closed]="!sidebarOpened">
+      <mat-icon>
+        menu
+      </mat-icon>
+    </button>
   </div>
   <div>
-    <span class="mat-headline-5 toolbar-item" routerLink="/info">Über uns</span>
-    <span class="mat-headline-5 toolbar-item" routerLink="/anmeldung">Anmeldung</span>
+    <span class="mat-headline-4 toolbar-item">Volleyball Freitag</span>
   </div>
 </mat-toolbar>
 
 <div>
-  <router-outlet></router-outlet>
-</div>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" [(opened)]="sidebarOpened" [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
+        <mat-nav-list>
+          <a mat-list-item routerLink="info">
+            <mat-icon matListItemIcon>
+              info
+            </mat-icon>
+            <span>
+              Über uns
+            </span>
+          </a>
+          <a mat-list-item routerLink="anmeldung">
+            <mat-icon matListItemIcon>
+              list
+            </mat-icon>
+            <span>
+              Anmeldung
+            </span>
+          </a>
+        </mat-nav-list>
 
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
