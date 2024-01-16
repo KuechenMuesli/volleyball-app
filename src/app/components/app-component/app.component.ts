@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy{
     this.responsive.observe(Breakpoints.HandsetPortrait)
       .subscribe(result => {
         this.isMobile = result.matches;
+        if (this.isMobile) this.sidebarOpened = false;
       })
   }
 
