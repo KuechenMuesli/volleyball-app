@@ -1,1 +1,30 @@
-<p>lists works!</p>
+<div class="player-list">
+  <div class="mat-headline-5 pt-3">
+    Anmeldeliste
+  </div>
+  <div class="mat-body-1 info-text">
+    Hier könnt ihr euch eintragen. Die aktuelle Liste ist immer mit einem Datum versehen. Einfach zu der gewünschten Uhrzeit eintragen. Falls die Liste voll ist,
+    wirst du automatisch als Ersatz eingetragen und rückst in die Liste vor, wenn sich jemand austrägt. Deswegen am besten immer noch einmal nachschauen, ob man doch
+    in der Liste steht.
+  </div>
+
+  <div class="mat-body-strong pt-2">
+    {{list.first_list.time | date: "H:mm "}} Uhr - {{(list.first_list.time + 7200000) | date: "H:mm"}} Uhr
+  </div>
+  <div *ngFor="let player of list.first_list.players; index as i">
+    <span class="mat-body-1">
+      {{i + 1}}. {{player}}
+    </span>
+  </div>
+
+  <span *ngIf="list.second_list">
+    <div class="mat-body-strong pt-2" >
+      {{list.second_list.time | date: "H:mm "}} Uhr - {{(list.second_list.time + 7200000) | date: "H:mm"}} Uhr
+    </div>
+    <div *ngFor="let player of list.second_list.players; index as i">
+    <span class="mat-body-1">
+      {{i + 1}}. {{player}}
+    </span>
+  </div>
+  </span>
+</div>
