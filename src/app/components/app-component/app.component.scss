@@ -1,0 +1,17 @@
+.toolbar-item{
+  padding-right: 30px;
+}
+
+.main-headline {
+  user-select: none;
+}
+
+.menu-open {
+  rotate: 90deg;
+  transition: 0.1s ease-in-out;
+}
+
+.menu-closed {
+  rotate: 0deg;
+  transition: 0.1s ease-in-out;
+}

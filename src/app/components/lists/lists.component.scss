@@ -1,0 +1,14 @@
+.player-list {
+  margin: auto;
+  width: 80%;
+}
+
+.info-text {
+  text-align: justify;
+}
+
+@media  (min-width:800px) {
+  .player-list {
+    max-width: 800px;
+  }
+}
